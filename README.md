@@ -1,6 +1,6 @@
 # terraform_playground
 
-# terraform loads all .tf's into one file, to run a lot of these problems do a terraform console and call the actual function (resource) or var.variable name or local.variable_name. To run the function you will need to run the terraform apply
+terraform loads all .tf's into one file, to run a lot of these problems do a terraform console and call the actual function (resource) or var.variable name or local.variable_name. To run the function you will need to run the terraform apply
 
 
 ```
