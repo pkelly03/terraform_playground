@@ -2,6 +2,8 @@
 
 # terraform loads all .tf's into one file, to run a lot of these problems do a terraform console and call the actual function (resource) or var.variable name or local.variable_name. To run the function you will need to run the terraform apply
 
+
+```
 variable "apps" {
   type = map(any)
   default = {
@@ -72,7 +74,11 @@ variable "apps" {
     }
   }
 
+```
 
+The locals declaration
+
+```
 locals {
   solr_availability_zone_count = var.solr_availability_zone_count["v5-prod"]
   solr_cluster_size_per_az = var.solr_cluster_size_per_az["v5-prod"]
@@ -80,7 +86,11 @@ locals {
   zookeeper_availability_zone_count = var.zookeeper_availability_zone_count["v5-prod"]
 
 }
+```
 
+These are all the outputs, note the commented out sum field. 
+
+```
 output "len_solr" {
   value = length(local.solr_cluster_size_per_az) 
 }
@@ -94,3 +104,4 @@ output "solr_cluster_size" {
   # value = sum([for size in values(local.solr_cluster_size_per_az) : size * local.solr_availability_zone_count])
 
 }
+```
